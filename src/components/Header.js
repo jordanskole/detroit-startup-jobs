@@ -6,18 +6,11 @@ export default () => (
     <h1 className='Header-h1'>Detroit Startup Jobs</h1>
     <nav className='Header-nav'>
       <NavLink
-        exact to='/'
+        exact to={process.env.PUBLIC_URL + '/'}
         className='Header-navLink'
         activeClassName='Header-isActive'
       >
         Home
-      </NavLink>
-      <NavLink
-        to='/about'
-        className='Header-navLink'
-        activeClassName='Header-isActive'
-      >
-        About
       </NavLink>
     </nav>
   </header>

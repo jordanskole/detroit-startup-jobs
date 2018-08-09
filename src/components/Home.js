@@ -14,7 +14,7 @@ const Home = ({ data: { loading, error, jobs, jobsConnection, networkStatus }, l
         <ul className='Home-ul'>
           {jobs.map(job => (
             <li className='Home-li' key={`job-${job.id}`}>              
-              <Link to={`/job/${job.id}`} className='Home-link'>
+              <Link to={`${process.env.PUBLIC_URL}/job/${job.id}`} className='Home-link'>
                 <h3>{`${job.organization.name}: ${job.title}`}</h3>
               </Link>
             </li>
