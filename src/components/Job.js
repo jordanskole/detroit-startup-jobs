@@ -34,7 +34,7 @@ export const singleJob = gql`
 export default graphql(singleJob, {
   options: ({ match }) => ({    
     variables: {
-      id: match.params.slug
+      id: match.params.id
     }
   })
 })(Job)

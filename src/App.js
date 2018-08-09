@@ -11,7 +11,7 @@ const App = () => (
       <Header />
       <main>
         <Route exact path='/' component={Home} />
-        <Route path='/jobs/:id' component={Job} />
+        <Route path='/job/:id' component={Job} />
       </main>
     </div>
   </Router>
