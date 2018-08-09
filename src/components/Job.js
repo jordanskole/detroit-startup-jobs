@@ -9,7 +9,7 @@ const Job = ({ data: { loading, error, job } }) => {
   if (!loading) {
     return (
       <article>
-        <h1>{job.title}</h1>
+        <h1>{job.title} @ {job.organization.name}</h1>
         <Markdown
           source={job.description}
           escapeHtml={false}
@@ -27,6 +27,10 @@ export const singleJob = gql`
       title
       description
       createdAt
+      organization {
+        id
+        name        
+      }
     }
   }
 `

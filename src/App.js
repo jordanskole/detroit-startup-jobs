@@ -10,8 +10,8 @@ const App = () => (
     <div>
       <Header />
       <main>
-        <Route exact path='/' component={Home} />
-        <Route path='/job/:id' component={Job} />
+        <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
+        <Route path={process.env.PUBLIC_URL + '/job/:id'} component={Job} />
       </main>
     </div>
   </Router>
