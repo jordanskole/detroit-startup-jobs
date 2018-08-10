@@ -14,6 +14,7 @@ const Job = ({ data: { loading, error, job } }) => {
           source={job.description}
           escapeHtml={false}
         />
+      <a href={`${job.url}?source=detroitstartupjobs.com&medium=referral&campaign=${job.title}`} target='_blank'>Apply Now 👉</a>
       </article>
     )
   }
@@ -27,16 +28,17 @@ export const singleJob = gql`
       title
       description
       createdAt
+      url
       organization {
         id
-        name        
+        name
       }
     }
   }
 `
 
 export default graphql(singleJob, {
-  options: ({ match }) => ({    
+  options: ({ match }) => ({
     variables: {
       id: match.params.id
     }
