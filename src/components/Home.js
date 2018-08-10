@@ -56,7 +56,7 @@ const Home = ({ data: { loading, error, jobs, jobsConnection, networkStatus }, l
       </Nav>
     )
   }
-  return <h2>Loading jobs...</h2>
+  return (<h2>Loading jobs...</h2>)
 }
 
 export const jobs = gql`

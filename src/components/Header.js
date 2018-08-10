@@ -15,8 +15,8 @@ const HeaderMenu = styled.nav`
 `
 
 const HeaderMenuItem = styled(NavLink)`
-  margin-left:5px;
-  margin-right:5px;
+  font-size: 1.1em;
+  margin-right: 1em;
 `
 
 
@@ -40,7 +40,11 @@ export default () => (
       >
         👔jobs
       </HeaderMenuItem>
-
+      <HeaderMenuItem
+        exact to={process.env.PUBLIC_URL + '/skills'}
+      >
+        ⛹️‍skills
+      </HeaderMenuItem>
       <HeaderMenuItem
         exact to={process.env.PUBLIC_URL + '/submit'}
       >

@@ -21,6 +21,7 @@ const App = () => (
         <Route path={process.env.PUBLIC_URL + '/jobs'} component={ComingSoon} />
         <Route path={process.env.PUBLIC_URL + '/job/:id'} component={Job} />
         <Route path={process.env.PUBLIC_URL + '/companies'} component={ComingSoon} />
+        <Route path={process.env.PUBLIC_URL + '/skills'} component={ComingSoon} />
         <Route path={process.env.PUBLIC_URL + '/submit'} component={ComingSoon} />
         <Route path={process.env.PUBLIC_URL + '/account'} component={ComingSoon} />
       </main>
