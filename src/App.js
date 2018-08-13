@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import Header from './components/Header'
 import Home from './components/Home'
 import Job from './components/Job'
+import CompanyList from './components/CompanyList'
+import Company from './components/Company'
 import ComingSoon from './components/ComingSoon'
 
 const Wrapper = styled.div`
@@ -20,7 +22,8 @@ const App = () => (
         <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
         <Route path={process.env.PUBLIC_URL + '/jobs'} component={ComingSoon} />
         <Route path={process.env.PUBLIC_URL + '/job/:id'} component={Job} />
-        <Route path={process.env.PUBLIC_URL + '/companies'} component={ComingSoon} />
+        <Route path={process.env.PUBLIC_URL + '/companies'} component={CompanyList} />
+        <Route path={process.env.PUBLIC_URL + '/company/:slug'} component={Company} />
         <Route path={process.env.PUBLIC_URL + '/skills'} component={ComingSoon} />
         <Route path={process.env.PUBLIC_URL + '/submit'} component={ComingSoon} />
         <Route path={process.env.PUBLIC_URL + '/account'} component={ComingSoon} />

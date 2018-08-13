@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 
-const JOBS_PER_PAGE = 10
+const JOBS_PER_PAGE = 3
 
 const Nav = styled.section`
   width: 100%;
@@ -29,6 +29,7 @@ const Home = ({ data: { loading, error, jobs, jobsConnection, networkStatus }, l
     <h1>Error fetching jobs! <Link to={process.env.PUBLIC_URL + '/'}>Reload</Link></h1>
   )
   if (jobs && jobsConnection) {
+    console.log(jobs);
     const areMoreJobs = jobs.length < jobsConnection.aggregate.count
     return (
       <Nav>
@@ -85,7 +86,8 @@ export const jobsQueryVars = {
 
 export default graphql(jobs, {
   options: {
-    variables: jobsQueryVars
+    variables: jobsQueryVars,
+    notifyOnNetworkStatusChange: true
   },
   props: ({ data }) => ({
     data,
@@ -99,7 +101,7 @@ export default graphql(jobs, {
             return previousResult
           }
           return Object.assign({}, previousResult, {
-            allJobs: [...previousResult.jobs, ...fetchMoreResult.jobs]
+            jobs: [...previousResult.jobs, ...fetchMoreResult.jobs]
           })
         }
       })
