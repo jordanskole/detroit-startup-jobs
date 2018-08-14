@@ -31,14 +31,14 @@ export default () => (
         🏠home
       </HeaderMenuItem>
       <HeaderMenuItem
-        exact to={process.env.PUBLIC_URL + '/companies'}
-      >
-        🏢companies
-      </HeaderMenuItem>
-      <HeaderMenuItem
         exact to={process.env.PUBLIC_URL + '/jobs'}
       >
         👔jobs
+      </HeaderMenuItem>
+      <HeaderMenuItem
+        exact to={process.env.PUBLIC_URL + '/companies'}
+      >
+        🏢companies
       </HeaderMenuItem>
       <HeaderMenuItem
         exact to={process.env.PUBLIC_URL + '/skills'}

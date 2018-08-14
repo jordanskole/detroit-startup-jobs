@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 
-const COMPANIES_PER_PAGE = 3
+const COMPANIES_PER_PAGE = 50
 
 const Nav = styled.section`
   width: 100%;
