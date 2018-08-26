@@ -1,25 +1,16 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Header = styled.header`
 
 `
 
-const SiteName = styled.h1`
-
-`
-
 const HeaderMenu = styled.nav`
-
+  padding-top: 5em;
 `
 
 const HeaderMenuItem = styled(NavLink)`
-  font-size: 1.1em;
-  margin-right: 1em;
-`
-
-const HeaderMenuLink = styled.a`
   font-size: 1.1em;
   margin-right: 1em;
 `
@@ -28,7 +19,6 @@ const HeaderMenuLink = styled.a`
 
 export default () => (
   <Header>
-    <SiteName>👩‍💻 Detroit Startup Jobs</SiteName>
     <HeaderMenu>
       <HeaderMenuItem
         exact to={process.env.PUBLIC_URL + '/'}
@@ -50,12 +40,11 @@ export default () => (
       >
         ⛹️‍skills
       </HeaderMenuItem>
-      <HeaderMenuLink
-        href="https://airtable.com/shrKhNwJQYIBjUEya"
-        target="_blank"
+      <HeaderMenuItem
+        exact to={process.env.PUBLIC_URL + '/submit'}
       >
         📋submit
-      </HeaderMenuLink>
+      </HeaderMenuItem>
       <HeaderMenuItem
         exact to={process.env.PUBLIC_URL + '/account'}
       >

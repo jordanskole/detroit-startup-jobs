@@ -32,8 +32,8 @@ const Skill = ({ data: { loading, error, skill } }) => {
   return (<h2>Loading skill...</h2>)
 }
 
-export const singleOrganization = gql`
-  query singleOrganization($slug: String!) {
+export const singleSkill = gql`
+  query singleSkill($slug: String!) {
     skill(where: {slug: $slug}) {
       id
       name
@@ -44,14 +44,13 @@ export const singleOrganization = gql`
         organization {
           id
           name
-          addressCity
         }
       }
     }
   }
 `
 
-export default graphql(singleOrganization, {
+export default graphql(singleSkill, {
   options: ({ match }) => ({
     variables: {
       slug: match.params.slug

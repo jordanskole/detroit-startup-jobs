@@ -1,6 +1,6 @@
 {
   "name": "detroit-startup-jobs",
-  "homepage": "http://jordanskole.github.io/detroit-startup-jobs",
+  "homepage": "https://detroitstartupjobs.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && aws s3 sync build/ s3://detroitstartupjobs.com --profile serverless",
+    "test and deploy": "npm run test && npm run deploy"
   }
 }

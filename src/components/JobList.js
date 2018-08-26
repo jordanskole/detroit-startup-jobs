@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 
 const JOBS_PER_PAGE = 50
 
@@ -17,10 +18,18 @@ const NavList = styled.ul`
 `
 
 const NavItem = styled.li`
+  padding-top: 1.5em;
+`
+const NavItemTitle = styled.h3`
+
+`
+
+const NavItemDescription = styled.p`
 
 `
 
 const LearnMoreLink = styled(Link)`
+  font-style: italic;
   padding-top: 0.5em;
 `
 
@@ -29,22 +38,23 @@ const JobList = ({ data: { loading, error, jobs, jobsConnection, networkStatus }
     <h1>Error fetching jobs! <Link to={process.env.PUBLIC_URL + '/'}>Reload</Link></h1>
   )
   if (jobs && jobsConnection) {
-    console.log(jobs);
     const areMoreJobs = jobs.length < jobsConnection.aggregate.count
     return (
       <Nav>
+        <Helmet>
+          <link rel="canonical" href="https://detroitstartupjobs.com/" />
+        </Helmet>
         <NavList>
           {jobs.map(job => (
-            <li key={`job-${job.id}`}>
+            <NavItem key={`job-${job.id}`}>
               <Link to={`${process.env.PUBLIC_URL}/job/${job.id}`}>
-                <h3>{`${job.organization.name}: ${job.title}`}</h3>
+                <NavItemTitle>{`${job.organization.name}: ${job.title}`}</NavItemTitle>
               </Link>
-              {job.seoDescription}
-              <br />
+              <NavItemDescription>{job.seoDescription}</NavItemDescription>
               <LearnMoreLink to={`${process.env.PUBLIC_URL}/job/${job.id}`}>
                 learn more &raquo;
               </LearnMoreLink>
-            </li>
+            </NavItem>
           ))}
         </NavList>
         <div>

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 
 import Header from './components/Header'
-import Home from './components/Home'
+import Footer from './components/Footer'
 import JobList from './components/JobList'
 import Job from './components/Job'
 import CompanyList from './components/CompanyList'
@@ -22,7 +22,7 @@ const App = () => (
   <Router>
     <Wrapper>
       <Helmet>
-        <title>Detroit Startup Jobs</title>
+        <title>Detroit Startup Jobs</title>        
       </Helmet>
       <Header />
       <main>
@@ -36,6 +36,7 @@ const App = () => (
         <Route path={process.env.PUBLIC_URL + '/submit'} component={ComingSoon} />
         <Route path={process.env.PUBLIC_URL + '/account'} component={ComingSoon} />
       </main>
+      <Footer />
     </Wrapper>
   </Router>
 )

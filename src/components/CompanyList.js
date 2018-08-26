@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 
 const COMPANIES_PER_PAGE = 50
 
@@ -17,10 +18,18 @@ const NavList = styled.ul`
 `
 
 const NavItem = styled.li`
+  padding-top: 2em;
+`
+const NavItemTitle = styled.h3`
+  margin: 0.5em 0em;
+`
 
+const NavItemDescription = styled.p`
+  margin: 0.5em 0em;
 `
 
 const LearnMoreLink = styled(Link)`
+  font-style: italic;
   padding-top: 0.5em;
 `
 
@@ -32,18 +41,20 @@ const CompanyList = ({ data: { loading, error, organizations, organizationsConne
     const areMoreCompanies = organizations.length < organizationsConnection.aggregate.count
     return (
       <Nav>
+        <h1>{`Detroit Startup List`}</h1>
         <NavList>
           {organizations.map(company => (
-            <li key={`company-${company.id}`}>
-              <Link to={`${process.env.PUBLIC_URL}/company/${company.slug}`}>
-                <h3>{company.name}</h3>
-              </Link>
-              {company.seoDescription}
-              <br />
+            <NavItem key={`company-${company.id}`}>
+              <h3>
+                <Link to={`${process.env.PUBLIC_URL}/company/${company.slug}`}>
+                  {company.name}
+                </Link>
+              </h3>
+              <NavItemDescription>{company.seoDescription}</NavItemDescription>
               <LearnMoreLink to={`${process.env.PUBLIC_URL}/company/${company.slug}`}>
-                learn more &raquo;
+                {company.jobs.length > 0 ? `${company.jobs.length} jobs »` : 'learn more »'}
               </LearnMoreLink>
-            </li>
+            </NavItem>
           ))}
         </NavList>
         <div>
@@ -66,6 +77,13 @@ export const organizations = gql`
       slug
       name
       seoDescription
+      jobs {
+        id
+      }
+      cities {
+        name
+        slug
+      }
     },
     organizationsConnection {
       aggregate {

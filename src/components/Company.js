@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 import Markdown from 'react-markdown'
+import { Helmet } from 'react-helmet'
 
 const Company = ({ data: { loading, error, organization } }) => {
   console.log('doing things');
@@ -10,8 +11,20 @@ const Company = ({ data: { loading, error, organization } }) => {
   if (!loading) {
     return (
       <article>
+        <Helmet>
+          <title>{organization.name} - Detroit Startup Jobs</title>
+          <meta name="description" content={organization.seoDescription} />
+        </Helmet>
         <h1>{organization.name}</h1>
-        <a href={`${organization.url}?source=detroitstartupjobs.com&medium=referral&campaign=${organization.name}`} target='_blank'>🌐 {organization.url}</a>
+        <ul>
+          <li><a href={`${organization.url}?source=detroitstartupjobs.com&medium=referral&campaign=${organization.name}`} target='_blank'>🌐 {organization.url}</a></li>
+        </ul>
+        <h3>Locations:</h3>
+        <ul>
+          {organization.cities.map(city => (
+            <li>{city.name}</li>
+          ))}
+        </ul>
         <Markdown
           source={organization.description}
           escapeHtml={false}
@@ -42,6 +55,10 @@ export const singleOrganization = gql`
         id
         title
         seoDescription
+      }
+      cities {
+        name
+        slug
       }
     }
   }
