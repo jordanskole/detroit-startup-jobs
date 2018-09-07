@@ -22,7 +22,7 @@ const App = () => (
   <Router>
     <Wrapper>
       <Helmet>
-        <title>Detroit Startup Jobs</title>        
+        <title>Detroit Startup Jobs</title>
       </Helmet>
       <Header />
       <main>
@@ -41,4 +41,4 @@ const App = () => (
   </Router>
 )
 
-export default App
+export default App;
