@@ -9,7 +9,13 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloProvider } from 'react-apollo'
 
+import { Router } from 'react-router'
+import { Route } from 'react-router-dom'
+import history from './history';
+
 const GRAPHCMS_API = 'https://api-useast.graphcms.com/v1/cjkkctz8c074201dl2fnnstuj/master'
+
+
 
 const client = new ApolloClient({
   link: new HttpLink({ uri: GRAPHCMS_API }),
@@ -17,9 +23,11 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
+  <Router history={history}>
+    <ApolloProvider client={client}>
+        <App />
+    </ApolloProvider>
+  </Router>,
   document.getElementById('root')
 )
 registerServiceWorker();
