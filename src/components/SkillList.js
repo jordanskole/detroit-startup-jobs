@@ -26,7 +26,7 @@ const LearnMoreLink = styled(Link)`
 
 const CompanyList = ({ data: { loading, error, skills, skillsConnection, networkStatus }, loadMoreSkills }) => {
   if (error) return (
-    <h1>Error fetching skills! <Link to={process.env.PUBLIC_URL + '/'}>Reload</Link></h1>
+    <h1>Error fetching skills! <Link to='/'>Reload</Link></h1>
   )
   if (skills && skillsConnection) {
     const areMoreSkills = skills.length < skillsConnection.aggregate.count
@@ -35,12 +35,12 @@ const CompanyList = ({ data: { loading, error, skills, skillsConnection, network
         <NavList>
           {skills.map(skill => (
             <li key={`skill-${skill.id}`}>
-              <Link to={`${process.env.PUBLIC_URL}/skill/${skill.slug}`}>
+              <Link to={`/skill/${skill.slug}`}>
                 <h3>{`${skill.name} (${skill.jobs.length} jobs)`}</h3>
               </Link>
               {skill.description ? skill.description : ''}
               <br />
-              <LearnMoreLink to={`${process.env.PUBLIC_URL}/skill/${skill.slug}`}>
+              <LearnMoreLink to={`/skill/${skill.slug}`}>
                 learn more &raquo;
               </LearnMoreLink>
             </li>

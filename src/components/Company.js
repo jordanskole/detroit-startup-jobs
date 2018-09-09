@@ -33,7 +33,7 @@ const Company = ({ data: { loading, error, organization } }) => {
         <ul>
           {organization.jobs.map(job => (
             <li>
-              <Link to={`${process.env.PUBLIC_URL}/job/${job.id}`}>{job.title}</Link>
+              <Link to={`/job/${job.id}`}>{job.title}</Link>
             </li>
           ))}
         </ul>

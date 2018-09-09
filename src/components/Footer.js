@@ -21,32 +21,32 @@ export default () => (
   <Header>
     <HeaderMenu>
       <HeaderMenuItem
-        exact to={process.env.PUBLIC_URL + '/'}
+        exact to='/'
       >
         🏠home
       </HeaderMenuItem>
       <HeaderMenuItem
-        exact to={process.env.PUBLIC_URL + '/jobs'}
+        exact to='/jobs'
       >
         👔jobs
       </HeaderMenuItem>
       <HeaderMenuItem
-        exact to={process.env.PUBLIC_URL + '/companies'}
+        exact to='/companies'
       >
         🏢companies
       </HeaderMenuItem>
       <HeaderMenuItem
-        exact to={process.env.PUBLIC_URL + '/skills'}
+        exact to='/skills'
       >
         ⛹️‍skills
       </HeaderMenuItem>
       <HeaderMenuItem
-        exact to={process.env.PUBLIC_URL + '/submit'}
+        exact to='/submit'
       >
         📋submit
       </HeaderMenuItem>
       <HeaderMenuItem
-        exact to={process.env.PUBLIC_URL + '/account'}
+        exact to='/account'
       >
         🔐login
       </HeaderMenuItem>

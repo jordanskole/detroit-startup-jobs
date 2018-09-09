@@ -21,7 +21,7 @@ const Skill = ({ data: { loading, error, skill } }) => {
         <ul>
           {skill.jobs.map(job => (
             <li key={job.id}>
-              <Link to={`${process.env.PUBLIC_URL}/job/${job.id}`}>{`${job.title} @ ${job.organization.name} - ${job.organization.addressCity}`}</Link>
+              <Link to={`/job/${job.id}`}>{`${job.title} @ ${job.organization.name} - ${job.organization.addressCity}`}</Link>
             </li>
           ))}
         </ul>
