@@ -15,7 +15,8 @@ import history from './history';
 
 const GRAPHCMS_API = 'https://api-useast.graphcms.com/v1/cjkkctz8c074201dl2fnnstuj/master'
 
-
+console.log(`you are in the ${process.env.NODE_ENV} environment on port ${process.env.PORT}`);
+console.log(process.env);
 
 const client = new ApolloClient({
   link: new HttpLink({ uri: GRAPHCMS_API }),

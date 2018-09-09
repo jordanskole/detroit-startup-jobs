@@ -35,7 +35,7 @@ const LearnMoreLink = styled(Link)`
 
 const JobList = ({ data: { loading, error, jobs, jobsConnection, networkStatus }, loadMoreJobs }) => {
   if (error) return (
-    <h1>Error fetching jobs! <Link to={process.env.PUBLIC_URL + '/'}>Reload</Link></h1>
+    <h1>Error fetching jobs! <Link to='/'>Reload</Link></h1>
   )
   if (jobs && jobsConnection) {
     const areMoreJobs = jobs.length < jobsConnection.aggregate.count
@@ -47,11 +47,11 @@ const JobList = ({ data: { loading, error, jobs, jobsConnection, networkStatus }
         <NavList>
           {jobs.map(job => (
             <NavItem key={`job-${job.id}`}>
-              <Link to={`${process.env.PUBLIC_URL}/job/${job.id}`}>
+              <Link to={`/job/${job.id}`}>
                 <NavItemTitle>{`${job.organization.name}: ${job.title}`}</NavItemTitle>
               </Link>
               <NavItemDescription>{job.seoDescription}</NavItemDescription>
-              <LearnMoreLink to={`${process.env.PUBLIC_URL}/job/${job.id}`}>
+              <LearnMoreLink to={`/job/${job.id}`}>
                 learn more &raquo;
               </LearnMoreLink>
             </NavItem>

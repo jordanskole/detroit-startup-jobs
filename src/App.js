@@ -38,16 +38,16 @@ const App = () => (
     </Helmet>
     <Header auth={auth} />
     <main>
-      <Route exact path={process.env.PUBLIC_URL + '/'} render={(props) => <JobList {...props} />} />
-      <Route path={process.env.PUBLIC_URL + '/jobs'} render={(props) => <JobList {...props} />} />
-      <Route path={process.env.PUBLIC_URL + '/job/:id'} render={(props) => <Job {...props} />} />
-      <Route path={process.env.PUBLIC_URL + '/companies'} render={(props) => <CompanyList {...props} />} />
-      <Route path={process.env.PUBLIC_URL + '/company/:slug'} render={(props) => <Company {...props} />} />
-      <Route path={process.env.PUBLIC_URL + '/skills'} render={(props) => <SkillList {...props} />} />
-      <Route path={process.env.PUBLIC_URL + '/skill/:slug'} render={(props) => <Skill {...props} />} />
-      <Route path={process.env.PUBLIC_URL + '/submit'} render={(props) => <ComingSoon {...props} />} />
-      <Route path={process.env.PUBLIC_URL + '/account'} render={(props) => <ComingSoon {...props} />} />
-      <Route path={process.env.PUBLIC_URL + '/callback'} render={(props) => {
+      <Route exact path='/' render={(props) => <JobList {...props} />} />
+      <Route path='/jobs' render={(props) => <JobList {...props} />} />
+      <Route path='/job/:id' render={(props) => <Job {...props} />} />
+      <Route path='/companies' render={(props) => <CompanyList {...props} />} />
+      <Route path='/company/:slug' render={(props) => <Company {...props} />} />
+      <Route path='/skills' render={(props) => <SkillList {...props} />} />
+      <Route path='/skill/:slug' render={(props) => <Skill {...props} />} />
+      <Route path='/submit' render={(props) => <ComingSoon {...props} />} />
+      <Route path='/account' render={(props) => <ComingSoon {...props} />} />
+      <Route path='/callback' render={(props) => {
         handleAuthentication(props);
         return <Callback {...props} />
       }}/>

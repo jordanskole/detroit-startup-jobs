@@ -35,7 +35,7 @@ const LearnMoreLink = styled(Link)`
 
 const CompanyList = ({ data: { loading, error, organizations, organizationsConnection, networkStatus }, loadMoreCompanies }) => {
   if (error) return (
-    <h1>Error fetching companies! <Link to={process.env.PUBLIC_URL + '/'}>Reload</Link></h1>
+    <h1>Error fetching companies! <Link to='/'>Reload</Link></h1>
   )
   if (organizations && organizationsConnection) {
     const areMoreCompanies = organizations.length < organizationsConnection.aggregate.count
@@ -46,12 +46,12 @@ const CompanyList = ({ data: { loading, error, organizations, organizationsConne
           {organizations.map(company => (
             <NavItem key={`company-${company.id}`}>
               <h3>
-                <Link to={`${process.env.PUBLIC_URL}/company/${company.slug}`}>
+                <Link to={`/company/${company.slug}`}>
                   {company.name}
                 </Link>
               </h3>
               <NavItemDescription>{company.seoDescription}</NavItemDescription>
-              <LearnMoreLink to={`${process.env.PUBLIC_URL}/company/${company.slug}`}>
+              <LearnMoreLink to={`/company/${company.slug}`}>
                 {company.jobs.length > 0 ? `${company.jobs.length} jobs »` : 'learn more »'}
               </LearnMoreLink>
             </NavItem>

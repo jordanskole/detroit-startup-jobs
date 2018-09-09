@@ -18,7 +18,7 @@ const Job = ({ data: { loading, error, job } }) => {
         <p>
           <strong>Skills: </strong>
           {job.skills.map(skill => (
-            <Link key={skill.id} to={`${process.env.PUBLIC_URL}/skill/${skill.slug}`}>{skill.name},</Link>
+            <Link key={skill.id} to={`/skill/${skill.slug}`}>{skill.name},</Link>
           ))}
         </p>
         <Markdown

@@ -45,22 +45,22 @@ class Header extends React.Component {
         <SiteName>👩‍💻 Detroit Startup Jobs</SiteName>
         <HeaderMenu>
           <HeaderMenuItem
-            exact to={process.env.PUBLIC_URL + '/'}
+            exact to='/'
           >
             🏠home
           </HeaderMenuItem>
           <HeaderMenuItem
-            exact to={process.env.PUBLIC_URL + '/jobs'}
+            exact to='/jobs'
           >
             👔jobs
           </HeaderMenuItem>
           <HeaderMenuItem
-            exact to={process.env.PUBLIC_URL + '/companies'}
+            exact to='/companies'
           >
             🏢companies
           </HeaderMenuItem>
           <HeaderMenuItem
-            exact to={process.env.PUBLIC_URL + '/skills'}
+            exact to='/skills'
           >
             ⛹️‍skills
           </HeaderMenuItem>
